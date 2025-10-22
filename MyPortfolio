@@ -1,0 +1,110 @@
+---
+title: "VaR"
+author: "Nicholas Bartolucci"
+date: "`r Sys.Date()`"
+output:
+  pdf_document: default
+  html_document: default
+---
+
+Download packages
+```{r}
+library(quantmod)
+library(PerformanceAnalytics)
+```
+
+Get Stock returns
+```{r}
+companies <- c("MELI","COST","AMZN","GOOG","GOOGL","SPY","MSFT","AAPL","NVDA","UNH")
+getSymbols(companies, from = "2020-01-01", to = Sys.Date())
+prices <- na.omit(merge(Ad(MELI),Ad(COST),Ad(AMZN),Ad(GOOG),Ad(GOOGL),Ad(SPY),Ad(MSFT),Ad(AAPL),Ad(NVDA),Ad(UNH)))
+colnames(prices) <- companies
+returns <- na.omit(Return.calculate(prices, method = "log"))
+head(returns)
+```
+Convert to portfolio
+```{r}
+weights <- c(0.15, 0.09, 0.09,.11,.11,.23,.1,.07,.04,.01)
+port_ret <- Return.portfolio(R = returns, weights = weights)
+head(port_ret)
+```
+Find historical VaR, ES
+```{r}
+VaR_95_hist <- VaR(port_ret, p = 0.95, method = "historical")
+ES_95_hist  <- ES(port_ret, p = 0.95, method = "historical")
+
+VaR_95_hist
+ES_95_hist
+
+chart.Histogram(port_ret,
+                methods = c("add.density", "add.normal"),
+                main = "Portfolio Daily Returns with 95% VaR",
+                colorset = c("gray", "red"))
+abline(v = VaR_95_hist, col = "red", lwd = 2)
+```
+Now Gaussian VaR, ES
+```{r}
+VaR_95_norm <- VaR(port_ret, p = 0.95, method = "gaussian")
+ES_95_norm  <- ES(port_ret, p = 0.95, method = "gaussian")
+
+VaR_95_norm
+ES_95_norm
+
+chart.Histogram(port_ret,
+                methods = c("add.density", "add.normal"),
+                main = "Portfolio Daily Returns with 95% VaR",
+                colorset = c("gray", "red"))
+abline(v = VaR_95_norm, col = "red", lwd = 2)
+```
+Time Series of VaR
+```{r}
+roll_VaR_hist_95 <- rollapply(port_ret, width = 252,
+                              FUN = function(x) as.numeric(VaR(x, p = .95, method = "historical")),
+                              by.column = FALSE, align = "right")
+plot.zoo(roll_VaR_hist_95, main = "Rolling 1-year (252d) 95% VaR (portfolio)", ylab = "VaR (daily return)")
+```
+Cost
+```{r}
+V <- 18000
+VaR_hist_95_dollars <- -as.numeric(VaR_95_hist) * V   
+ES_hist_95_dollars  <- -as.numeric(ES_95_hist) * V
+
+cat("95% Historical VaR (loss) in $:", round(VaR_hist_95_dollars,2), "\n")
+cat("95% Historical ES (avg loss beyond VaR) in $:", round(ES_hist_95_dollars,2), "\n")
+```
+Monte Carlo Simulation
+```{r}
+mu <- colMeans(port_ret)
+Sigma <- cov(port_ret)
+library(MASS)
+
+n_sims <- 1e5
+library(mvtnorm)
+
+df <- 5  # degrees of freedom
+sim_t <- rmvt(n = n_sims, sigma = Sigma, df = df, delta = mu)
+
+
+VaR_t <- quantile(sim_t, probs = 0.05)
+ES_t  <- mean(sim_t[sim_t <= VaR_t])
+VaR_t 
+ES_t 
+```
+Average daily->yearly return
+```{r}
+s=colMeans((port_ret-mu)^2)
+skew=colMeans((port_ret-mu)^3)/sqrt(s^3)
+exkurtosis=colMeans((port_ret-mu)^4)/sqrt(s^4)-3
+mu
+(1+mu)^365-1
+```
+
+
+
+
+
+
+
+
+
+
