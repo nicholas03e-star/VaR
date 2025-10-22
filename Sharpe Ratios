@@ -1,0 +1,71 @@
+Show in New Window
+ [1] "MELI"  "AMZN"  "GOOG"  "GOOGL" "SPY"   "MSFT"  "AAPL"  "NVDA"  "UNH"   "V"     "COP"   "META"  "MNST"  "KO"    "TSLA" 
+[16] "COST"  "BRK-B" "PG"    "DIS"   "XOM"   "JPM"   "AXP"   "GLD"   "BTC"  
+           MELI.Adjusted AMZN.Adjusted GOOG.Adjusted GOOGL.Adjusted SPY.Adjusted MSFT.Adjusted AAPL.Adjusted NVDA.Adjusted
+2024-08-01 -3.765352e-02  -0.015563100 -0.0040427157   -0.004547027 -0.014161065  -0.002964100  -0.016750721   -0.06674065
+2024-08-02  1.058989e-01  -0.087847084 -0.0234850870   -0.024010189 -0.018618193  -0.020665940   0.006869356   -0.01776401
+2024-08-05 -7.883086e-05  -0.040976712 -0.0460807064   -0.044461883 -0.029123813  -0.032656915  -0.048166982   -0.06357787
+2024-08-06  1.936375e-02   0.005651400 -0.0006224656   -0.006028324  0.009219607   0.011286909  -0.009748227    0.03782983
+2024-08-07  2.723719e-02   0.005187499  0.0013079346    0.004106566 -0.006684070  -0.002952951   0.012498295   -0.05122302
+2024-08-08  5.215935e-03   0.018615216  0.0192226126    0.019441112  0.023117496   0.010692027   0.016633239    0.06126784
+           UNH.Adjusted    V.Adjusted COP.Adjusted META.Adjusted MNST.Adjusted   KO.Adjusted TSLA.Adjusted COST.Adjusted
+2024-08-01 -0.005883600  0.0009786189  -0.02526982    0.04824881  -0.001360538  0.0182800403   -0.06554060  -0.006216635
+2024-08-02  0.029785168  0.0024443290  -0.02417190   -0.01928706   0.004476441  0.0201589697   -0.04237758   0.006353454
+2024-08-05 -0.033687804 -0.0380373517  -0.01134539   -0.02542310  -0.022088730 -0.0177414013   -0.04232674  -0.024632558
+2024-08-06 -0.002824641  0.0070970746   0.01176255    0.03859338   0.006538498 -0.0007339908    0.00884953   0.018769466
+2024-08-07 -0.003993953 -0.0067373493   0.01068051   -0.01046377  -0.005314970  0.0060249594   -0.04425840  -0.008055091
+2024-08-08  0.000282565  0.0129035189   0.01253149    0.04235871  -0.109242046  0.0039438859    0.03692116   0.035949711
+           BRK.B.Adjusted   PG.Adjusted DIS.Adjusted  XOM.Adjusted JPM.Adjusted AXP.Adjusted GLD.Adjusted BTC.Adjusted
+2024-08-01   -0.015256562  0.0306669825 -0.006831089 -0.0138291507 -0.022744442  -0.01723048 -0.003442943  -0.02936098
+2024-08-02   -0.007989653  0.0264952788 -0.037399247 -0.0005984679 -0.042412053  -0.06594825 -0.001904628  -0.01067620
+2024-08-05   -0.034176825 -0.0118768601 -0.019984371 -0.0180526726 -0.021291559  -0.02738068 -0.012691935  -0.14568343
+2024-08-06    0.020351961  0.0001784525  0.024948749 -0.0053150043  0.027911767   0.02301703 -0.008000714   0.06315789
+2024-08-07    0.011560085  0.0114820229 -0.044570410  0.0133146741  0.000299554  -0.01003814 -0.000679628  -0.03762379
+2024-08-08    0.010585030  0.0049994295  0.000000000  0.0191044085  0.018263413   0.02071679  0.015688014   0.08436219
+Show in New Window
+ MELI.Adjusted  AMZN.Adjusted  GOOG.Adjusted GOOGL.Adjusted   SPY.Adjusted  MSFT.Adjusted  AAPL.Adjusted  NVDA.Adjusted 
+        0.0255         0.0000         0.0000         0.0285         0.0000         0.0720         0.0000         0.0000 
+  UNH.Adjusted     V.Adjusted   COP.Adjusted  META.Adjusted  MNST.Adjusted    KO.Adjusted  TSLA.Adjusted  COST.Adjusted 
+        0.0191         0.0000         0.0000         0.0161         0.0657         0.1412         0.0000         0.0000 
+BRK.B.Adjusted    PG.Adjusted   DIS.Adjusted   XOM.Adjusted   JPM.Adjusted   AXP.Adjusted   GLD.Adjusted   BTC.Adjusted 
+        0.0598         0.0806         0.0196         0.0246         0.0504         0.0000         0.3967         0.0002 
+Show in New Window
+Expected Return: 0.001090731 
+Risk (Std Dev): 0.006406851 
+Sharpe Ratio: 0.1702445 
+[1] 1.488695
+         [,1]
+[1,] 2.702548
+Show in New Window
+[1] 2713
+Show in New Window
+Expected Return: 0.000717893 
+Risk (Std Dev): 0.004707171 
+Sharpe Ratio: 0.1312663 
+[1] 2.083788
+Show in New Window
+
+Show in New Window
+
+
+R version 4.5.1 (2025-06-13 ucrt) -- "Great Square Root"
+Copyright (C) 2025 The R Foundation for Statistical Computing
+Platform: x86_64-w64-mingw32/x64
+
+R is free software and comes with ABSOLUTELY NO WARRANTY.
+You are welcome to redistribute it under certain conditions.
+Type 'license()' or 'licence()' for distribution details.
+
+  Natural language support but running in an English locale
+
+R is a collaborative project with many contributors.
+Type 'contributors()' for more information and
+'citation()' on how to cite R or R packages in publications.
+
+Type 'demo()' for some demos, 'help()' for on-line help, or
+'help.start()' for an HTML browser interface to help.
+Type 'q()' to quit R.
+
+[Workspace loaded from ~/.RData]
+
+> 
